@@ -6,6 +6,7 @@ import AboutCloux from '../components/AboutCloux';
 
 
 
+
 const Home = () => {
 
     return (
@@ -14,6 +15,7 @@ const Home = () => {
             <HighestRatedGame></HighestRatedGame>
             <BlogsNews></BlogsNews>
             <AboutCloux></AboutCloux>
+        
         </div>
     );
 };

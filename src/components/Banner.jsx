@@ -22,7 +22,7 @@ const Banner = () => {
                                     Playing electronic games, whether through consoles, computers, mobile phones or another medium altogether. Gaming is a nuanced term that suggests regular gameplay, possibly as a body
                                 </p>
                                 <button className="py-2 font-bold rounded px-5 border-0 bg-[#ff00dc] mr-5">BUY NOW</button>
-                                <button className="py-2 font-bold rounded px-5 border border-[#ff00dc] mr-5">Get Started</button>
+                                <button className="py-2 font-bold rounded px-5 border text-[#ff00dc] hover:bg-[#ff00dc] hover:text-white border-[#ff00dc] ">Get Started</button>
                             </div>
                         </div>
                     </div>

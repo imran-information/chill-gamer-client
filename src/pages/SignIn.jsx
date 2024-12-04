@@ -1,47 +1,84 @@
-import React, { useState } from 'react';
-import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
+import React, { useContext, useState } from 'react';
+import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from 'react-icons/fa';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProviders';
+import Swal from 'sweetalert2';
 
 const SignIn = () => {
-
-    // const { handleSignInUser, handleGoogleSignInUser } = useContext(AuthContext)
+    const { handleGoogleSignInUser, handleSignIn, handleGithubLoginUser } = useContext(AuthContext)
     const [toggle, setToggle] = useState(false)
 
     const location = useLocation()
     const navigate = useNavigate()
     const [error, setError] = useState({})
+
     const handleSubmit = (e) => {
         e.preventDefault()
         const email = e.target.email.value;
         const password = e.target.password.value;
-        handleSignInUser(email, password)
+        handleSignIn(email, password)
             .then(res => {
-                // toast.success("login successfully !", {
-                //     position: "top-center"
-                // });
-                // navigate(location?.state ? location.state : '/')
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Login Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                navigate(location?.state ? location.state : '/')
             }).catch(err => {
-                // setError({ ...error, login: err.code })
-                // toast.error("invalid information..! try again ", {
-                //     position: "top-left"
-                // });
+                setError({ ...error, login: err.code })
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "invalid information..! try again",
+                    footer: '<a href="#">Why do I have this issue?</a>'
+                });
+
 
             })
-
     }
     const handleGoogleLogin = () => {
         handleGoogleSignInUser()
-        // .then(res => {
-        //     toast.success("login successfully !", {
-        //         position: "top-center"
-        //     });
-        //     navigate(location?.state ? location.state : '/')
-        // }).catch(error => {
-        //     setError({ ...error, login: err.code })
-        //     toast.warn("Please try again...!", {
-        //         position: "top-center"
-        //     });
-        // })
+            .then(res => {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Login Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                navigate(location?.state ? location.state : '/')
+            }).catch(error => {
+                setError({ ...error, login: err.code })
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "invalid information..! try again",
+                    footer: '<a href="#">Why do I have this issue?</a>'
+                });
+            })
+    }
+    const handleGithubLogin = () => {
+        handleGithubLoginUser()
+            .then(res => {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Login Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Sorry",
+                    text: "Try again",
+                    footer: '<a href="#">Why do I have this issue?</a>'
+                });
+            })
     }
     return (
         <div className="hero py-10">
@@ -55,9 +92,14 @@ const SignIn = () => {
                 </div>
                 <div className="card bg-base-100  w-[500px]   shrink-0 shadow-2xl">
                     <h1 className="text-4xl font-bold pt-5 text-center">Login Now!</h1>
-                    <div onClick={handleGoogleLogin} className="form-control px-8 pt-10">
-                        <button className="btn btn-outline">
+                    <div className="form-control px-8 pt-10">
+                        <button onClick={handleGoogleLogin} className="btn btn-outline">
                             <FaGoogle className='font-bold text-2xl'></FaGoogle> Login with Google</button>
+                    </div>
+                    <div className="form-control px-8 pt-5">
+                        <button onClick={handleGithubLogin} className="btn btn-outline">
+                            {/* <FaGithub /> */}
+                            <FaGithub className='font-bold text-2xl'></FaGithub> Login with Github</button>
                     </div>
                     <form onSubmit={handleSubmit} className="card-body">
 

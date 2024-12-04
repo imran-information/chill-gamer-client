@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import gamerLogo from '../assets/gamer-logo.png'
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProviders';
+import Swal from 'sweetalert2';
 const Navbar = () => {
+    const { user, handleSignOut } = useContext(AuthContext)
+    console.log(user)
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to='/add-review'>Add Review</NavLink></li>
         <li><a>All Reviews</a></li>
         <li><a>My Reviews</a></li>
         <li><a>Game Watch List</a></li>
@@ -18,6 +23,20 @@ const Navbar = () => {
             </details>
         </li>
     </>
+
+    const handleSignOutUser = () => {
+        handleSignOut()
+            .then(data => {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Logout Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
+    }
+
     return (
         <div className="navbar fixed text-[#ff00dc] z-50 top-0 md:px-10 backdrop-blur-xl">
             <div className="navbar-start">
@@ -53,30 +72,34 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <NavLink to='/signIn'>Login</NavLink>
-                <div className="flex-none gap-2">
-                    <div className="dropdown dropdown-end">
-                        <div tabIndex={0} role="button" className="btn  btn-circle avatar border-2 border-[#ff00dc]">
-                            <div className="w-10 rounded-full">
-                                <img
-                                    alt="Tailwind CSS Navbar component"
-                                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                {
+                    user ?
+                        <div className="flex-none gap-2">
+                            <div className="dropdown dropdown-end">
+                                <div tabIndex={0} role="button" className="btn  btn-circle avatar border-2 border-[#ff00dc]">
+                                    <div className="w-10 rounded-full">
+                                        <img
+                                            alt=""
+                                            src={user?.photoURL} />
+                                    </div>
+                                </div>
+                                <ul
+                                    tabIndex={0}
+                                    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                                    <li>
+                                        <NavLink to="/update-profile" className="justify-between">
+                                            Update info
+                                            <span className="badge">New</span>
+                                        </NavLink>
+                                    </li>
+                                    {/* <li><a>Settings</a></li> */}
+                                    <li onClick={handleSignOutUser}><a>Logout</a></li>
+                                </ul>
                             </div>
                         </div>
-                        <ul
-                            tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                            <li>
-                                <a className="justify-between">
-                                    Update info
-                                    <span className="badge">New</span>
-                                </a>
-                            </li>
-                            <li><a>Settings</a></li>
-                            <li><a>Logout</a></li>
-                        </ul>
-                    </div>
-                </div>
+                        : <NavLink to='/signIn'>Login</NavLink>
+                }
+
             </div>
         </div>
     );

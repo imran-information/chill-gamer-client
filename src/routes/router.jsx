@@ -3,6 +3,8 @@ import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
+import UpdateProfile from "../components/UpdateProfile";
+import AddReview from "../pages/AddReview";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
             {
                 path: '/signUp',
                 element: <SignUp></SignUp>
+            },
+            {
+                path: '/update-profile',
+                element: <UpdateProfile></UpdateProfile>
+            },
+            {
+                path: '/add-review',
+                element: <AddReview></AddReview>
             }
         ]
     }

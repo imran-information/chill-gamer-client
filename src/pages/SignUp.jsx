@@ -2,9 +2,10 @@ import React, { useContext, useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProviders';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
-    const { handleGoogleSignInUser } = useContext(AuthContext)
+    const { handleGoogleSignInUser, handleSignUpUser,updateUserProfile } = useContext(AuthContext)
     const [error, setError] = useState({})
     const location = useLocation()
     const navigate = useNavigate()
@@ -30,35 +31,55 @@ const SignUp = () => {
 
         handleSignUpUser(email, password)
             .then(res => {
-                toast.success("SignUp successfully !", {
-                    position: "top-center"
-                });
-                navigate(location?.state ? location.state : '/')
                 updateUserProfile(name, photo)
                     .then(res => {
-
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: "Sign Up successfully..!",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
                     }).catch(err => {
-
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "invalid information..! try again",
+                            footer: '<a href="#">Why do I have this issue?</a>'
+                        });
                     })
+                navigate(location?.state ? location.state : '/')
             }).catch(err => {
                 setError({ ...error, password: err.code })
-
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "invalid information..! try again",
+                    footer: '<a href="#">Why do I have this issue?</a>'
+                });
             })
     }
 
     const handleGoogleLogIn = () => {
         handleGoogleSignInUser()
             .then(res => {
-                // toast.success("login successfully !", {
-                //     position: "top-center"
-                // });
-                // navigate(location?.state ? location.state : '/')
-                console.log(res.user)
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Sign Up successfully..!",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                navigate(location?.state ? location.state : '/')
+                
             }).catch(error => {
                 setError({ ...error, login: err.code })
-                // toast.warn("Please try again...!", {
-                //     position: "top-center"
-                // });
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "invalid information..! try again",
+                    footer: '<a href="#">Why do I have this issue?</a>'
+                });
             })
     }
     return (

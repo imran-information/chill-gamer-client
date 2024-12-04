@@ -53,7 +53,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-
+                <NavLink to='/signIn'>Login</NavLink>
                 <div className="flex-none gap-2">
                     <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="btn  btn-circle avatar border-2 border-[#ff00dc]">

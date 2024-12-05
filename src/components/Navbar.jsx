@@ -10,7 +10,7 @@ const Navbar = () => {
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to='/add-review'>Add Review</NavLink></li>
-        <li><a>All Reviews</a></li>
+        <li><NavLink to='/all-reviews'>All Reviews</NavLink></li>
         <li><a>My Reviews</a></li>
         <li><a>Game Watch List</a></li>
         <li>

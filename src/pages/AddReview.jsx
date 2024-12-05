@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../providers/AuthProviders';
 
-const AddReview = ({ user }) => {
+const AddReview = () => {
+    const { user } = useContext(AuthContext)
     const [formData, setFormData] = useState({
         coverUrl: "",
         title: "",
@@ -21,14 +23,26 @@ const AddReview = ({ user }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Review submitted:", formData);
+        fetch('http://localhost:5000/reviews', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(res => {
+                // Simulating data storage
+                Swal.fire({
+                    title: "Success!",
+                    text: "Your review has been submitted.",
+                    icon: "success",
+                    confirmButtonText: "OK",
+                });
+            }).catch(err => {
+                console.log("ERR!")
+            })
 
-        // Simulating data storage
-        Swal.fire({
-            title: "Success!",
-            text: "Your review has been submitted.",
-            icon: "success",
-            confirmButtonText: "OK",
-        });
+
 
         // Reset form after submission
         setFormData({
@@ -49,7 +63,8 @@ const AddReview = ({ user }) => {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center backdrop-blur-sm">
                     <div className="container mt-5">
-                        <h2 className="text-center">Add New Game Review</h2>
+                        
+                        <h2 className="mb-5 text-4xl font-bold">Add New <span className='text-[#ff00dc]'>Game Review</span> </h2>
                         <form onSubmit={handleSubmit} className=" card-body">
                             <div className="flex gap-4">
                                 <div className="mb-3 form-control w-full">
@@ -59,6 +74,7 @@ const AddReview = ({ user }) => {
                                     <input
                                         type="url"
                                         className="input input-bordered rounded-sm text-black"
+                                        placeholder='Thumbnail URL'
                                         id="coverUrl"
                                         name="coverUrl"
                                         value={formData.coverUrl}
@@ -76,6 +92,7 @@ const AddReview = ({ user }) => {
                                         className="input input-bordered rounded-sm text-black"
                                         id="title"
                                         name="title"
+                                        placeholder='Game Title/Name'
                                         value={formData.title}
                                         onChange={handleChange}
                                         required
@@ -90,7 +107,7 @@ const AddReview = ({ user }) => {
                                 <textarea
                                     className="rounded-sm text-black"
                                     id="description"
-
+                                    placeholder='Review Description'
                                     name="description"
                                     rows="4"
                                     value={formData.description}
@@ -109,6 +126,7 @@ const AddReview = ({ user }) => {
                                         className="input input-bordered rounded-sm text-black"
                                         id="rating"
                                         name="rating"
+                                        placeholder='Rating (1-10)'
                                         value={formData.rating}
                                         onChange={handleChange}
                                         min="1"
@@ -127,6 +145,7 @@ const AddReview = ({ user }) => {
                                         id="year"
                                         name="year"
                                         value={formData.year}
+                                        placeholder='Publishing Year'
                                         onChange={handleChange}
                                         min="1980"
                                         max={new Date().getFullYear()}
@@ -182,7 +201,7 @@ const AddReview = ({ user }) => {
                                         type="text"
                                         className="input input-bordered rounded-sm text-black"
                                         id="name"
-                                        value={user?.name}
+                                        value={user?.displayName}
                                         readOnly
                                     />
                                 </div>

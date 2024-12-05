@@ -6,12 +6,12 @@ import { AuthContext } from '../providers/AuthProviders';
 import Swal from 'sweetalert2';
 const Navbar = () => {
     const { user, handleSignOut } = useContext(AuthContext)
-    console.log(user)
+
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to='/add-review'>Add Review</NavLink></li>
         <li><NavLink to='/all-reviews'>All Reviews</NavLink></li>
-        <li><a>My Reviews</a></li>
+        <li><NavLink to='/my-reviews'>My Reviews</NavLink></li>
         <li><a>Game Watch List</a></li>
         <li>
             <details>

@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import HighestRatedCard from './HighestRatedCard';
 
 const HighestRatedGame = () => {
+    const [highestRatedData, setHighestRatedData] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:5000/explore-details')
+            .then(res => res.json())
+            .then(data => {
+                const shorted = data.sort((a, b) => b.rating - a.rating)
+                setHighestRatedData(shorted)
+            })
+
+    }, [])
+
     return (
-        <div>
-            Highest Rated Game
+        <div className='w-10/12 mx-auto py-20'>
+            
+            <h2 className="mb-5 text-4xl text-center font-bold">Highest Rated <span className='text-[#ff00dc]'> Game</span> </h2>
+            <div className="md:grid grid-cols-4 gap-5 mt-10">
+                {
+                    highestRatedData.map(highestRated => <HighestRatedCard key={highestRated._id} highestRated={highestRated}></HighestRatedCard>)
+                }
+            </div>
         </div>
     );
 };

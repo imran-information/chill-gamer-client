@@ -11,6 +11,8 @@ const AddReview = () => {
         rating: "",
         year: "",
         genre: "",
+        name: user.displayName,
+        email: user.email,
     });
 
     const genres = ["Action", "RPG", "Adventure", "Puzzle", "Sports"];
@@ -63,7 +65,7 @@ const AddReview = () => {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center backdrop-blur-sm">
                     <div className="container mt-5">
-                        
+
                         <h2 className="mb-5 text-4xl font-bold">Add New <span className='text-[#ff00dc]'>Game Review</span> </h2>
                         <form onSubmit={handleSubmit} className=" card-body">
                             <div className="flex gap-4">
@@ -188,6 +190,8 @@ const AddReview = () => {
                                         type="email"
                                         className="input input-bordered rounded-sm text-black"
                                         id="email"
+                                        name='email'
+                                        
                                         value={user?.email}
                                         readOnly
                                     />
@@ -200,6 +204,7 @@ const AddReview = () => {
                                     <input
                                         type="text"
                                         className="input input-bordered rounded-sm text-black"
+                                        name='name'
                                         id="name"
                                         value={user?.displayName}
                                         readOnly

@@ -1,27 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import gamerLogo from '../assets/gamer-logo.png'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProviders';
 import Swal from 'sweetalert2';
 const Navbar = () => {
     const { user, handleSignOut } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const [isHovered, setIsHovered] = useState(false);
+
 
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to='/add-review'>Add Review</NavLink></li>
         <li><NavLink to='/all-reviews'>All Reviews</NavLink></li>
         <li><NavLink to='/my-reviews'>My Reviews</NavLink></li>
-        <li><a>Game Watch List</a></li>
-        <li>
-            <details>
-                <summary>Profile</summary>
-                <ul className="p-2">
-                    <li><a>Update info </a></li>
-                    <li><a>Submenu 2</a></li>
-                </ul>
-            </details>
-        </li>
+        <li><NavLink to='/game-watch-lists'>Game Watch List</NavLink></li>
+
     </>
 
     const handleSignOutUser = () => {
@@ -34,6 +29,7 @@ const Navbar = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
+                navigate('/')
             })
     }
 
@@ -74,14 +70,37 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ?
-                        <div className="flex-none gap-2">
+                        <div className="flex-none gap-2  relative inline-block">
+                            {isHovered && (
+                                <div
+                                    style={{
+
+                                        position: "absolute",
+                                        top: "60px",
+                                        left: "50%",
+                                        transform: "translateX(-50%)",
+                                        backgroundColor: "rgba(0, 0, 0, 0.8)",
+                                        color: "#fff",
+                                        padding: "5px 10px",
+                                        borderRadius: "5px",
+                                        fontSize: "12px",
+                                        whiteSpace: "nowrap",
+                                        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                                        zIndex: 1000,
+                                    }}
+                                >
+                                    {user.displayName}
+
+                                </div>
+                            )}
                             <div className="dropdown dropdown-end">
                                 <div tabIndex={0} role="button" className="btn  btn-circle avatar border-2 border-[#ff00dc]">
-                                    <div className="w-10 rounded-full">
+                                    <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className="w-10 rounded-full ">
                                         <img
                                             alt=""
                                             src={user?.photoURL} />
                                     </div>
+
                                 </div>
                                 <ul
                                     tabIndex={0}

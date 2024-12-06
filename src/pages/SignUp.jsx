@@ -54,7 +54,7 @@ const SignUp = () => {
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",
-                    text: "invalid information..! try again",
+                    text: "email already used ..! try again",
                     footer: '<a href="#">Why do I have this issue?</a>'
                 });
             })

@@ -9,6 +9,7 @@ const AuthProviders = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    
     const handleGoogleSignInUser = () => {
         const provider = new GoogleAuthProvider();
         setLoading(true)
@@ -17,6 +18,7 @@ const AuthProviders = ({ children }) => {
 
     const handleGithubLoginUser = () => {
         const provider = new GithubAuthProvider();
+        setLoading(true)
         return signInWithPopup(auth, provider)
     }
 
@@ -26,10 +28,12 @@ const AuthProviders = ({ children }) => {
     }
 
     const handleSignIn = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const updateUserProfile = (name, photo) => {
+        setLoading(true)
         const profile = {
             displayName: name,
             photoURL: photo
@@ -65,7 +69,8 @@ const AuthProviders = ({ children }) => {
         handleSignUpUser,
         updateUserProfile,
         handleSignIn,
-        handleGithubLoginUser
+        handleGithubLoginUser,
+        loading
     }
 
     return (

@@ -11,10 +11,15 @@ const ReviewDetails = () => {
     const { coverUrl, title, description, rating, year, genre, _id, name, email } = reviewDetailsData;
     const [ratings, setRatings] = useState(0)
 
-    const handleAddToWatchList = (username, email) => {
+    const handleAddToWatchList = (username, email, coverUrl, title, description, rating, year, genre) => {
         const newWatchList = {
             username,
-            email
+            email,
+            coverUrl,
+            title,
+            description,
+            rating,
+            year, genre
         }
         fetch('http://localhost:5000/watchLists', {
             method: "POST",
@@ -66,7 +71,7 @@ const ReviewDetails = () => {
                         </div>
 
                         {
-                            user ? <button onClick={() => handleAddToWatchList(name, email)} className="py-2 font-bold rounded px-5 border text-[#ff00dc] hover:bg-[#ff00dc] hover:text-white border-[#ff00dc] ">Add to WatchList</button> : <Link to='/signIn' className="py-2 font-bold rounded px-5 border text-[#ff00dc] hover:bg-[#ff00dc] hover:text-white border-[#ff00dc] ">Login</Link>
+                            user ? <button onClick={() => handleAddToWatchList(user.displayName, user.email, coverUrl, title, description, rating, year, genre)} className="py-2 font-bold rounded px-5 border text-[#ff00dc] hover:bg-[#ff00dc] hover:text-white border-[#ff00dc] ">Add to WatchList</button> : <Link to='/signIn' className="py-2 font-bold rounded px-5 border text-[#ff00dc] hover:bg-[#ff00dc] hover:text-white border-[#ff00dc] ">Login</Link>
                         }
                     </div>
                 </div>

@@ -7,9 +7,10 @@ import Swal from 'sweetalert2';
 const SignIn = () => {
     const { handleGoogleSignInUser, handleSignIn, handleGithubLoginUser } = useContext(AuthContext)
     const [toggle, setToggle] = useState(false)
-
     const location = useLocation()
+    console.log(location)
     const navigate = useNavigate()
+
     const [error, setError] = useState({})
 
     const handleSubmit = (e) => {
@@ -25,7 +26,7 @@ const SignIn = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                navigate(location?.state ? location.state : '/')
+                navigate(location.state ? location.state : '/')
             }).catch(err => {
                 setError({ ...error, login: err.code })
                 Swal.fire({
@@ -48,7 +49,7 @@ const SignIn = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                navigate(location?.state ? location.state : '/')
+                navigate(location.state ? location.state : '/')
             }).catch(error => {
                 setError({ ...error, login: err.code })
                 Swal.fire({
@@ -69,7 +70,7 @@ const SignIn = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                navigate(location?.state ? location.state : '/')
+                navigate(location.state ? location.state : '/')
             })
             .catch(error => {
                 Swal.fire({

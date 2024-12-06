@@ -10,6 +10,9 @@ import ReviewDetails from "../pages/ReviewDetails";
 import HighestRatedDetails from "../pages/HighestRatedDetails";
 import MyReviews from "../pages/MyReviews";
 import UpdateReviews from "../pages/UpdateReviews";
+import GameWatchLists from "../pages/GameWatchLists";
+import PrivateRout from "./PrivateRouts.jsx/PrivateRout";
+import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
     {
@@ -30,11 +33,15 @@ const router = createBrowserRouter([
             },
             {
                 path: '/update-profile',
-                element: <UpdateProfile></UpdateProfile>
+                element: <PrivateRout>
+                    <UpdateProfile></UpdateProfile>
+                </PrivateRout>
             },
             {
                 path: '/add-review',
-                element: <AddReview></AddReview>
+                element: <PrivateRout>
+                    <AddReview></AddReview>
+                </PrivateRout>
             },
             {
                 path: '/all-reviews',
@@ -53,13 +60,31 @@ const router = createBrowserRouter([
             },
             {
                 path: '/my-reviews',
-                element: <MyReviews></MyReviews>,
+                element: <PrivateRout>
+                    <MyReviews></MyReviews>
+                </PrivateRout>,
                 loader: () => fetch('http://localhost:5000/my-reviews')
             },
             {
                 path: '/update-review/:id',
                 element: <UpdateReviews></UpdateReviews>,
                 loader: ({ params }) => fetch(`http://localhost:5000/my-reviews/${params.id}`)
+            },
+            {
+                path: '/game-watch-lists',
+                element: <PrivateRout>
+                    <GameWatchLists></GameWatchLists>
+                </PrivateRout>,
+                loader: async () => {
+                    // const allReviews = await fetch('http://localhost:5000/reviews')
+                    const allWatchLists = await fetch('http://localhost:5000/watchLists')
+                    return allWatchLists;
+                },
+
+            },
+            {
+                path: '*',
+                element: <NotFound></NotFound>
             }
 
         ]

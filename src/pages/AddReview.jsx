@@ -25,7 +25,7 @@ const AddReview = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Review submitted:", formData);
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://chill-gamer-server-gules.vercel.app/reviews', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',

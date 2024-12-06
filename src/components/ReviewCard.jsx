@@ -2,10 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const ReviewCard = ({ review }) => {
-    const { coverUrl, title, description, rating, year, genre, _id,  } = review;
+    const { coverUrl, title, description, rating, year, genre, _id, } = review;
 
     const handleReviewDetails = id => {
-        fetch(`http://localhost:5000/reviews/${id}`)
+        fetch(`https://chill-gamer-server-gules.vercel.app/reviews/${id}`)
             .then(res => {
                 console.log(res)
             }).catch(err => {

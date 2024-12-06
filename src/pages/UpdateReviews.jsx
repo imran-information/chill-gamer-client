@@ -31,7 +31,7 @@ const UpdateReviews = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Review submitted:", formData);
-        fetch(`http://localhost:5000/reviews/${_id}`, {
+        fetch(`https://chill-gamer-server-gules.vercel.app/reviews/${_id}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json',

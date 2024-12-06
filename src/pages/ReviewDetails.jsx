@@ -21,7 +21,7 @@ const ReviewDetails = () => {
             rating,
             year, genre
         }
-        fetch('http://localhost:5000/watchLists', {
+        fetch('https://chill-gamer-server-gules.vercel.app/watchLists', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

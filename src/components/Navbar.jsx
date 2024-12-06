@@ -116,7 +116,7 @@ const Navbar = () => {
                                 </ul>
                             </div>
                         </div>
-                        : <NavLink to='/signIn'>Login</NavLink>
+                        : <NavLink className='text-lg font-semibold' to='/signIn'>Log in</NavLink>
                 }
 
             </div>

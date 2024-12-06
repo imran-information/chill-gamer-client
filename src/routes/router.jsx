@@ -46,29 +46,29 @@ const router = createBrowserRouter([
             {
                 path: '/all-reviews',
                 element: <AllReviews></AllReviews>,
-                loader: () => fetch('http://localhost:5000/reviews')
+                loader: () => fetch('https://chill-gamer-server-gules.vercel.app/reviews')
             },
             {
                 path: '/review-details/:id',
                 element: <ReviewDetails></ReviewDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/reviews/${params.id}`)
+                loader: ({ params }) => fetch(`https://chill-gamer-server-gules.vercel.app/reviews/${params.id}`)
             },
             {
                 path: '/explore-details/:id',
                 element: <HighestRatedDetails></HighestRatedDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/explore-details/${params.id}`)
+                loader: ({ params }) => fetch(`https://chill-gamer-server-gules.vercel.app/explore-details/${params.id}`)
             },
             {
                 path: '/my-reviews',
                 element: <PrivateRout>
                     <MyReviews></MyReviews>
                 </PrivateRout>,
-                loader: () => fetch('http://localhost:5000/my-reviews')
+                loader: () => fetch('https://chill-gamer-server-gules.vercel.app/my-reviews')
             },
             {
                 path: '/update-review/:id',
                 element: <UpdateReviews></UpdateReviews>,
-                loader: ({ params }) => fetch(`http://localhost:5000/my-reviews/${params.id}`)
+                loader: ({ params }) => fetch(`https://chill-gamer-server-gules.vercel.app/my-reviews/${params.id}`)
             },
             {
                 path: '/game-watch-lists',
@@ -76,8 +76,8 @@ const router = createBrowserRouter([
                     <GameWatchLists></GameWatchLists>
                 </PrivateRout>,
                 loader: async () => {
-                    // const allReviews = await fetch('http://localhost:5000/reviews')
-                    const allWatchLists = await fetch('http://localhost:5000/watchLists')
+                    // const allReviews = await fetch('https://chill-gamer-server-gules.vercel.app/reviews')
+                    const allWatchLists = await fetch('https://chill-gamer-server-gules.vercel.app/watchLists')
                     return allWatchLists;
                 },
 

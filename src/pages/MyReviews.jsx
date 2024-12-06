@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { NavLink, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProviders';
+import Swal from 'sweetalert2';
 
 const MyReviews = () => {
     const { user } = useContext(AuthContext)
@@ -13,6 +14,35 @@ const MyReviews = () => {
         setMyReviews(myReview)
     }, [])
 
+    const handleDeleteReview = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/reviews/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        const newMyReview = myReviews.filter(myReview => myReview._id != id);
+                        setMyReviews(newMyReview)
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                    })
+
+            }
+        });
+
+    }
 
 
     return (
@@ -41,13 +71,13 @@ const MyReviews = () => {
                                 <td className="flex gap-2">
                                     <NavLink to={`/update-review/${review._id}`}
                                         className="btn btn-sm btn-info"
-                                        // onClick={() => onUpdate(review.id)}
+                                    // onClick={() => onUpdate(review.id)}
                                     >
                                         Update
                                     </NavLink>
                                     <button
+                                        onClick={() => handleDeleteReview(review._id)}
                                         className="btn btn-sm btn-error"
-                                        // onClick={() => onDelete(review.id)}
                                     >
                                         Delete
                                     </button>

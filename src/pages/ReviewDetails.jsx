@@ -23,15 +23,14 @@ const ReviewDetails = () => {
             },
             body: JSON.stringify(newWatchList)
         })
-            .then(res => {
+            .then(res => res.json())
+            .then(data => {
                 Swal.fire({
                     title: "Success!",
                     text: "Your WatchList has been Added.",
                     icon: "success",
                     confirmButtonText: "OK",
                 });
-            }).catch(err => {
-                console.log(err)
             })
     }
     return (
@@ -61,10 +60,10 @@ const ReviewDetails = () => {
                         <p className="py-1">
                             <span className='text-slate-300'>Email:</span> {email}
                         </p>
-                        <p className="flex items-center pb-5">
+                        <div className="flex items-center pb-5">
                             <p className='text-slate-300 flex-row mr-2'>Rating:</p>
                             <Rating style={{ maxWidth: 150 }} value={ratings} onChange={setRatings} />
-                        </p>
+                        </div>
 
                         {
                             user ? <button onClick={() => handleAddToWatchList(name, email)} className="py-2 font-bold rounded px-5 border text-[#ff00dc] hover:bg-[#ff00dc] hover:text-white border-[#ff00dc] ">Add to WatchList</button> : <Link to='/signIn' className="py-2 font-bold rounded px-5 border text-[#ff00dc] hover:bg-[#ff00dc] hover:text-white border-[#ff00dc] ">Login</Link>

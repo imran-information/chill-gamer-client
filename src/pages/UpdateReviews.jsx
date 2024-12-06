@@ -9,17 +9,6 @@ const UpdateReviews = () => {
     const navigate = useNavigate();
     const { coverUrl, title, description, rating, year, genre, _id, } = oneReviewData;
 
-    // console.log(oneReviewData)
-    // const handleUpdateClick = () => {
-    //     // Logic to determine whether to redirect or open the modal
-    //     const openModal = true; // Change based on your condition
-    //     if (openModal) {
-    //         setIsModalOpen(true);
-    //     } else {
-    //         navigate(`/updateReview/${reviewId}`);
-    //     }
-    // };
-
     const { user } = useContext(AuthContext)
     const [formData, setFormData] = useState({
         coverUrl: coverUrl,
@@ -49,16 +38,15 @@ const UpdateReviews = () => {
             },
             body: JSON.stringify(formData)
         })
-            .then(res => {
-                // Simulating data storage
+            .then(res => res.json())
+            .then(data => {
                 Swal.fire({
                     title: "Success!",
-                    text: "Your review has been submitted.",
+                    text: "Your review has been Updated.",
                     icon: "success",
                     confirmButtonText: "OK",
                 });
-            }).catch(err => {
-                console.log("ERR!")
+                navigate('/my-reviews');
             })
 
 
@@ -221,7 +209,10 @@ const UpdateReviews = () => {
 
                             <button type="submit" className="py-2 font-bold rounded px-5 border-0 bg-[#ff00dc] mr-5 text-white"> Save </button>
                             <button
-                                onClick={() => setIsModalOpen(false)}
+                                onClick={() => {
+                                    setIsModalOpen(false)
+                                    navigate('/my-reviews');
+                                }}
                                 className="py-2 font-bold rounded px-5 border text-[#ff00dc] hover:bg-[#ff00dc] hover:text-white border-[#ff00dc] "
                             >
                                 Cancel

@@ -32,16 +32,14 @@ const AddReview = () => {
             },
             body: JSON.stringify(formData)
         })
-            .then(res => {
-                // Simulating data storage
+            .then(res => res.json())
+            .then(result => {
                 Swal.fire({
                     title: "Success!",
                     text: "Your review has been submitted.",
                     icon: "success",
                     confirmButtonText: "OK",
                 });
-            }).catch(err => {
-                console.log("ERR!")
             })
 
 
@@ -191,7 +189,7 @@ const AddReview = () => {
                                         className="input input-bordered rounded-sm text-black"
                                         id="email"
                                         name='email'
-                                        
+
                                         value={user?.email}
                                         readOnly
                                     />

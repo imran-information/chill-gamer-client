@@ -4,11 +4,11 @@ import gamerLogo from '../assets/gamer-logo.png'
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProviders';
 import Swal from 'sweetalert2';
+import { FaToggleOff, FaToggleOn } from 'react-icons/fa';
 const Navbar = () => {
     const { user, handleSignOut } = useContext(AuthContext)
     const navigate = useNavigate()
     const [isHovered, setIsHovered] = useState(false);
-
 
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
@@ -31,6 +31,12 @@ const Navbar = () => {
                 });
                 navigate('/')
             })
+    }
+
+
+    const handleToggleDarkMode = () => {
+        const toggle = document.body;
+        toggle.classList.toggle("dark-mode")
     }
 
     return (
@@ -68,6 +74,10 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+                <button className='mr-10' onClick={() => handleToggleDarkMode('dark-mode',)}>
+                    <p className='text-base font-medium flex items-center gap-3'>Dark Mode <FaToggleOn /></p>
+
+                </button>
                 {
                     user ?
                         <div className="flex-none gap-2  relative inline-block">

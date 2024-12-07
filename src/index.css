@@ -9,7 +9,14 @@ html {
 
 }
 
-/* HTML: <div class="loader"></div> */
+
+
+.dark-mode {
+  background-color: black;
+  color: #ff00dc;
+}
+
+
 .loader {
     width: 65px;
     aspect-ratio: 1;

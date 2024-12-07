@@ -2,6 +2,9 @@ import React from 'react';
 import banner1 from '../assets/banner1.png'
 import banner3 from '../assets/banner3.avif'
 
+import { Typewriter } from 'react-simple-typewriter'
+
+
 const Banner = () => {
 
 
@@ -17,7 +20,24 @@ const Banner = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center ">
                             <div className="">
-                                <h1 className="mb-5 text-8xl font-bold">Lets Your Mind <span className='text-[#ff00dc]'>Explore</span> New World</h1>
+                                <h1 className='mb-5 text-8xl font-bold'>
+                                    Lets Your Mind <span className='text-[#ff00dc]'>Explore</span> {' '}
+                                    {/* <h1 className="mb-5 text-8xl font-bold">Lets Your Mind <span className='text-[#ff00dc]'>Explore</span> New World {' '}</h1> */}
+                                    <span className=''>
+                                        {/* Style will be inherited from the parent element */}
+                                        <Typewriter
+                                            words={['New World', 'New World', 'New World', 'New World']}
+                                            loop={5}
+                                            cursor
+                                            cursorStyle='_'
+                                            typeSpeed={90}
+                                            deleteSpeed={50}
+                                            delaySpeed={1000}
+
+                                        />
+                                    </span>
+                                </h1>
+
                                 <p className="mb-5 px-20 font-sans">
                                     Playing electronic games, whether through consoles, computers, mobile phones or another medium altogether. Gaming is a nuanced term that suggests regular gameplay, possibly as a body
                                 </p>

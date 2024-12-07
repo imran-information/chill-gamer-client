@@ -13,7 +13,7 @@ const ReviewCard = ({ review }) => {
             })
     }
     return (
-        <div className="card bg-base-100 backdrop-blur-md w-96 rounded-none">
+        <div className="card bg-base-100 backdrop-blur-md rounded-none">
             <figure className='h-64 border-2'>
                 <img
                     src={coverUrl}

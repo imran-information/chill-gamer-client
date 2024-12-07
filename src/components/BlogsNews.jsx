@@ -7,12 +7,12 @@ import newsCardsImg4 from '../assets/news-card-img/news-img-4.avif'
 
 const BlogsNews = () => {
     return (
-        <div className='bg-gradient-to-r from-purple-500 to-white pt-10 pb-20 text-white'>
+        <div className='bg-purple-300 pt-10 pb-20 text-white'>
             <div className='w-10/12 mx-auto'>
                 <h3 className='text-4xl font-semibold text-center'> BLOG <span className='text-[#ff00dc]'>& NEWS</span></h3>
 
-                <div className="grid md:grid-cols-4 gap-5 text-black mt-7">
-                    <div className="card bg-base-100 w-96 rounded-none">
+                <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5 text-black mt-7">
+                    <div className="card bg-base-100  rounded-none">
                         <figure className='h-64'>
                             <img
                                 src={newsCardsImg}
@@ -28,7 +28,7 @@ const BlogsNews = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="card bg-base-100 w-96 rounded-none">
+                    <div className="card bg-base-100  rounded-none">
                         <figure className='h-64'>
                             <img
                                 src={newsCardsImg2}
@@ -44,7 +44,7 @@ const BlogsNews = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="card bg-base-100 w-96 rounded-none">
+                    <div className="card bg-base-100  rounded-none">
                         <figure className='h-64'>
                             <img
                                 src={newsCardsImg3}
@@ -60,7 +60,7 @@ const BlogsNews = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="card bg-base-100 w-96 rounded-none">
+                    <div className="card bg-base-100  rounded-none">
                         <figure className='h-64'>
                             <img
                                 src={newsCardsImg4}

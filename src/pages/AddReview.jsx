@@ -61,12 +61,12 @@ const AddReview = () => {
                     backgroundImage: "url(https://img.freepik.com/free-vector/detailed-gamer-room-illustration_23-2148923561.jpg?t=st=1733256238~exp=1733259838~hmac=dc9be82cc01c5b743e0e56e87d85b6607987aa9c81c3f69d8e896f9d024ee344&w=1380)",
                 }}>
                 <div className="hero-overlay bg-opacity-60"></div>
-                <div className="hero-content text-center backdrop-blur-sm">
+                <div className=" text-center backdrop-blur-sm">
                     <div className="container mt-5">
 
                         <h2 className="mb-5 text-4xl font-bold">Add New <span className='text-[#ff00dc]'>Game Review</span> </h2>
                         <form onSubmit={handleSubmit} className=" card-body">
-                            <div className="flex gap-4">
+                            <div className="md:flex gap-4">
                                 <div className="mb-3 form-control w-full">
                                     <label htmlFor="coverUrl" className="label">
                                         <span className="label-text text-white">Thumbnail URL</span>

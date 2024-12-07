@@ -15,12 +15,12 @@ const AboutCloux = () => {
                             <img className='rounded-sm md:h-96' src="https://img.freepik.com/free-photo/caucasian-woman-celebrating-winning-first-place-action-game-online-multiplayer-competition-from-home-gamer-girl-playing-space-shooter-simulation-professional-pc-setup-with-gaming-keyboard_482257-43584.jpg?uid=R154519964&ga=GA1.1.1636464796.1729528393&semt=ais_hybrid" alt="" />
                         </div>
                         <div className="flex-1">
-                            <h1 className="mb-5 text-5xl font-bold">ABOUT THE <br />
+                            <h1 className="mb-5 md:text-5xl text-4xl font-bold md:text-start text-center">ABOUT THE <br />
                                 <span className='text-[#ff00dc]'> CLOUX</span></h1>
-                            <p className="mb-5 font-sans">
+                            <p className="mb-5 font-sans text-justify">
                                 Playing electronic games, whether through consoles, computers, mobile phones or another medium altogether. Gaming is a nuanced term that suggests regular gameplay, possibly as a body
                             </p>
-                            <button className="py-2 font-bold rounded px-5 border-0 bg-[#ff00dc] mr-5">READ MORE</button>
+                            <button className="py-2 font-bold rounded  px-5 border-0 bg-[#ff00dc] mr-5">READ MORE</button>
 
                         </div>
                     </div>

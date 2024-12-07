@@ -5,8 +5,8 @@ const HighestRatedCard = ({ highestRated }) => {
     const { coverUrl, title, description, rating, year, genre, _id, } = highestRated;
 
     return (
-        <div className="card bg-base-100 backdrop-blur-md w-96 rounded-none">
-            <figure className='h-64 border-2'>
+        <div className="card bg-base-100 backdrop-blur-md rounded-none md:mb-0 mb-5">
+            <figure className='h-64 w-full border-2'>
                 <img
                     src={coverUrl}
                     alt="Shoes" />

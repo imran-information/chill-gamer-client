@@ -10,7 +10,7 @@ const Banner = () => {
 
     return (
         <div className=''>
-            <div className="carousel h-[900px] w-full text-white">
+            <div className="carousel max-h-screen w-full text-white">
                 <div id="slide1" className="carousel-item relative w-full">
                     <div
                         className="hero "
@@ -20,14 +20,14 @@ const Banner = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center ">
                             <div className="">
-                                <h1 className='mb-5 text-8xl font-bold'>
+                                <h1 className='mb-5 md:text-8xl text-3xl font-bold'>
                                     Lets Your Mind <span className='text-[#ff00dc]'>Explore</span> {' '}
                                     {/* <h1 className="mb-5 text-8xl font-bold">Lets Your Mind <span className='text-[#ff00dc]'>Explore</span> New World {' '}</h1> */}
                                     <span className=''>
                                         {/* Style will be inherited from the parent element */}
                                         <Typewriter
                                             words={['New World', 'New World', 'New World', 'New World']}
-                                            loop={5}
+                                            loop={8}
                                             cursor
                                             cursorStyle='_'
                                             typeSpeed={90}
@@ -38,7 +38,7 @@ const Banner = () => {
                                     </span>
                                 </h1>
 
-                                <p className="mb-5 px-20 font-sans">
+                                <p className="mb-5 md:px-20 font-sans">
                                     Playing electronic games, whether through consoles, computers, mobile phones or another medium altogether. Gaming is a nuanced term that suggests regular gameplay, possibly as a body
                                 </p>
                                 <button className="py-2 font-bold rounded px-5 border-0 bg-[#ff00dc] mr-5">BUY NOW</button>

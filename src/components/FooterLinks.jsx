@@ -9,7 +9,7 @@ import linkedin from "../assets/links-logos/linkedin.svg"
 
 const FooterLinks = () => {
     return (
-        <div className='w-10/12 mx-auto flex justify-around mb-10'>
+        <div className='w-10/12 mx-auto md:flex justify-around mb-10'>
             <NavLink className="flex flex-col items-center hover:text-[#ff00dc] ">
                 <img className='w-12' src={fb} alt="" />
                 <h4 className='py-2 text-xl font-bold '>FACEBOOK</h4>

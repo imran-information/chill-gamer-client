@@ -15,15 +15,20 @@ const HighestRatedGame = () => {
     }, [])
 
     return (
-        <div className='w-10/12 mx-auto py-20'>
 
-            <h2 className="mb-5 text-4xl text-center font-bold">Highest Rated <span className='text-[#ff00dc]'> Game</span> </h2>
-            <div className="md:grid grid-cols-4 gap-5 mt-10">
-                {
-                    highestRatedData.map(highestRated => <HighestRatedCard key={highestRated._id} highestRated={highestRated}></HighestRatedCard>)
-                }
+        <div className="md:bg-highest-rated-game bg-no-repeat bg-contain">
+            <div className='w-10/12 mx-auto py-20 '>
+
+                <h2 className="mb-5 text-4xl text-center text-white font-bold">Highest Rated <span className='text-[#ff00dc]'> Game</span> </h2>
+                <div className="md:grid md:grid-cols-3 lg:grid-cols-4 gap-5 mt-10">
+                    {
+                        highestRatedData.map(highestRated => <HighestRatedCard key={highestRated._id} highestRated={highestRated}></HighestRatedCard>)
+                    }
+                </div>
             </div>
+                
         </div>
+
     );
 };
 

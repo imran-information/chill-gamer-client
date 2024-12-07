@@ -13,6 +13,7 @@ export default {
     extend: {
       backgroundImage: {
         'hero-pattern': "url('/src/assets/all-reviews/bullseye.png')",
+        'highest-rated-game': "url('/src/assets/highest-rated-game.svg')",
 
       }
     },

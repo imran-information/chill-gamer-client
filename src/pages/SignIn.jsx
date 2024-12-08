@@ -82,7 +82,7 @@ const SignIn = () => {
             })
     }
     return (
-        <div className="hero py-10">
+        <div className="hero py-10 w-10/12 mx-auto">
             {/* <Helmet>
                 <title>Coupon Collecting | Login </title>
             </Helmet> */}
@@ -91,7 +91,7 @@ const SignIn = () => {
 
 
                 </div>
-                <div className="card bg-base-100  w-[500px]   shrink-0 shadow-2xl">
+                <div className="card bg-base-100  md:w-[500px]   shrink-0 shadow-2xl">
                     <h1 className="text-4xl font-bold pt-5 text-center">Login Now!</h1>
                     <div className="form-control px-8 pt-10">
                         <button onClick={handleGoogleLogin} className="btn btn-outline">
@@ -115,7 +115,7 @@ const SignIn = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type={toggle ? "text" : 'password'} name='password' placeholder="password" className="input input-bordered" required /> <p onClick={() => setToggle(!toggle)} className='absolute top-14 left-[400px] cursor-pointer' href="">{toggle ? <FaEyeSlash /> : <FaEye></FaEye>}</p>
+                            <input type={toggle ? "text" : 'password'} name='password' placeholder="password" className="input input-bordered" required /> <p onClick={() => setToggle(!toggle)} className='absolute top-14 md:left-[400px] left-[240px]  cursor-pointer' href="">{toggle ? <FaEyeSlash /> : <FaEye></FaEye>}</p>
                             {
                                 error?.login && <label className="label text-sm text-red-500">
                                     {error?.login}

@@ -89,7 +89,7 @@ const SignUp = () => {
             </Helmet> */}
             <div className="hero-content flex-col mx-auto">
 
-                <div className="card bg-base-100  w-[500px]   shrink-0 shadow-2xl">
+                <div className="card bg-base-100  md:w-[500px]   shrink-0 shadow-2xl">
                     <h1 className="text-4xl font-bold py-8 text-center">Sign up for free</h1>
 
                     <div className=" px-8 w-full">

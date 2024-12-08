@@ -63,9 +63,9 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <NavLink to="/" className=" md:ps-0 md:text-3xl  font-semibold flex items-center ">
+                <NavLink to="/" className=" md:ps-0    font-semibold flex items-center ">
                     <img className='w-12  text-[#7a217e]' src={gamerLogo} alt="" />
-                    <h4 className='ps-2 '>Chill Gamer</h4>
+                    <h4 className='ps-2 text-sm md:text-3xl'>Chill Gamer</h4>
                 </NavLink>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -74,7 +74,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className='mr-10' onClick={() => handleToggleDarkMode('dark-mode',)}>
+                <button className='mr-10 hidden md:block' onClick={() => handleToggleDarkMode('dark-mode',)}>
                     <p className='text-base font-medium flex items-center gap-3'>Dark Mode <FaToggleOn /></p>
 
                 </button>
@@ -126,7 +126,7 @@ const Navbar = () => {
                                 </ul>
                             </div>
                         </div>
-                        : <NavLink className='text-lg font-semibold' to='/signIn'>Log in</NavLink>
+                        : <NavLink className='text-sm md:text-lg font-semibold' to='/signIn'>Log in</NavLink>
                 }
 
             </div>

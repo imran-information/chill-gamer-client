@@ -10,7 +10,7 @@ const AboutCloux = () => {
                 }}>
 
                 <div className="hero-content ">
-                    <div className="md:flex justify-around items-center gap-10">
+                    <div className="lg:flex justify-around items-center gap-10">
                         <div className="hero-overlay bg-opacity-60 flex-1 ">
                             <img className='rounded-sm md:h-96' src="https://img.freepik.com/free-photo/caucasian-woman-celebrating-winning-first-place-action-game-online-multiplayer-competition-from-home-gamer-girl-playing-space-shooter-simulation-professional-pc-setup-with-gaming-keyboard_482257-43584.jpg?uid=R154519964&ga=GA1.1.1636464796.1729528393&semt=ais_hybrid" alt="" />
                         </div>

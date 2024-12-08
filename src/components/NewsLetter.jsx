@@ -10,25 +10,25 @@ const NewsLetter = () => {
                 }}>
 
                 <div className="w-10/12 mx-auto  text-white">
-                    <div className="md:flex justify-between  items-center gap-2">
+                    <div className="lg:flex justify-between  items-center gap-2">
                         <div className="">
                             <h1 className="text-4xl font-bold py-20 md:text-start text-center">NEWSLEATER:</h1>
                         </div>
                         <input
                             type="email"
                             placeholder="Your email address"
-                            className="input input-bordered border-[#ff00dc] w-full md:max-w-xs md:mb-0 mb-4" />
+                            className="input input-bordered border-[#ff00dc] w-full lg:max-w-xs lg:mb-0 mb-4" />
 
                         <input
                             type="text"
                             placeholder="First Name"
-                            className="input input-bordered border-[#ff00dc] w-full md:max-w-xs md:mb-0 mb-4" />
+                            className="input input-bordered border-[#ff00dc] w-full lg:max-w-xs lg:mb-0 mb-4" />
 
                         <input
                             type="text"
                             placeholder="Last Name"
-                            className="input input-bordered border-[#ff00dc]  w-full md:max-w-xs md:mb-0 mb-4" />
-                        <div className="md:max-w-xs md:mb-0 mb-4">
+                            className="input input-bordered border-[#ff00dc]  w-full lg:max-w-xs lg:mb-0 mb-4" />
+                        <div className="lg:max-w-xs lg:mb-0 mb-4">
                             <button className="py-3 font-bold rounded px-5 w-full  border text-[#ff00dc] hover:bg-[#ff00dc] hover:text-white border-[#ff00dc] ">SUBMIT</button>
                         </div>
                     </div>

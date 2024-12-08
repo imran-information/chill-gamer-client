@@ -11,7 +11,7 @@ const BlogsNews = () => {
             <div className='w-10/12 mx-auto'>
                 <h3 className='text-4xl font-semibold text-center'> BLOG <span className='text-[#ff00dc]'>& NEWS</span></h3>
 
-                <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5 text-black mt-7">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 text-black mt-7">
                     <div className="card bg-base-100  rounded-none">
                         <figure className='h-64'>
                             <img

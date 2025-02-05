@@ -1,7 +1,7 @@
 # Chill Gamer: A Game Review Application
 
 ## Live Site URL
-[Your Live Site Link Here](https://chill-gamer-3528e.web.app/)
+[Live Site Link](https://chill-gamer-3528e.web.app/)
 
 ## Overview
 Chill Gamer is a user-friendly game review application where users can explore and share game reviews. The platform provides an intuitive UI with features like user authentication, review management, and a personalized watchlist. Designed with simplicity and functionality in mind, Chill Gamer ensures a smooth experience for all users.
